@@ -1,0 +1,878 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NLP Knowledge Repository — Week 1 Concepts. An interactive educational portal covering core preprocessing, feature engineering, representations, models, workflows, and comparisons." />
+
+  <title>NLP Knowledge Repository</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/themes.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/placeholder_fixes.css" />
+</head>
+
+<body>
+  <!-- Loading overlay -->
+  <div id="loading" class="loading" aria-live="polite" aria-busy="true">
+    <div class="loading__card glass">
+      <div class="loading__spinner" aria-hidden="true"></div>
+      <div>
+        <div class="loading__title">Preparing your learning space…</div>
+        <div class="loading__meta">NLP Knowledge Repository </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme background / decorative -->
+  <div class="bg-orb bg-orb--1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb--2" aria-hidden="true"></div>
+
+  <!-- Sticky navigation -->
+  <header id="top" class="navHeader" role="navigation" aria-label="Primary navigation">
+    <div class="navHeader__progress" aria-hidden="true">
+      <div id="scrollProgress" class="navHeader__progressBar"></div>
+    </div>
+
+    <div class="navHeader__inner container">
+      <a class="logo" href="#home" aria-label="NLP Knowledge Repository Home">
+        <span class="logo__mark" aria-hidden="true">∑</span>
+        <span class="logo__text">NLP Week 1</span>
+      </a>
+
+      <button class="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="navToggle__icon" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" aria-label="Sections">
+        <ul id="navMenu" class="nav__list">
+          <li><a href="#home" class="nav__link" data-section="home">Home</a></li>
+          <li><a href="#concept-cards" class="nav__link" data-section="concept-cards">Concept Cards</a></li>
+          <li><a href="#comparative-analysis" class="nav__link" data-section="comparative-analysis">Comparative Analysis</a></li>
+          <li><a href="#workflow-diagrams" class="nav__link" data-section="workflow-diagrams">Workflow Diagrams</a></li>
+          <li><a href="#applications" class="nav__link" data-section="applications">Applications</a></li>
+          <li><a href="#research-industry" class="nav__link" data-section="research-industry">Research & Industry</a></li>
+          <li><a href="#sustainability" class="nav__link" data-section="sustainability">Sustainability</a></li>
+          <li><a href="#team-contribution" class="nav__link" data-section="team-contribution">Team Contribution</a></li>
+          <li><a href="#references" class="nav__link" data-section="references">References</a></li>
+        </ul>
+      </nav>
+
+      <!-- Floating quick navigation / breadcrumb -->
+      <div class="navHeader__crumb" aria-hidden="true">
+        <span class="crumb" id="breadcrumb">Home</span>
+      </div>
+
+      <div class="navHeader__actions">
+        <button id="themeToggle" class="iconBtn" type="button" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">🌙</span>
+        </button>
+        
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section id="home" class="hero" aria-labelledby="heroTitle">
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <div class="hero__badge wow">
+            <span class="spark" aria-hidden="true">✦</span>
+            NLP Knowledge Repository
+          </div>
+
+          <h1 id="heroTitle" class="hero__title">Week 1 Concepts, Explained with Clarity</h1>
+          <p class="hero__subtitle">An interactive learning portal for foundational NLP topics: preprocessing, feature engineering, representations, and language models—taught through examples, comparisons, and workflows.</p>
+
+          <div class="hero__desc glass">
+            <h2 class="srOnly">Project description</h2>
+            <ul class="checklist">
+              <li><span aria-hidden="true">✓</span> Beginner-friendly explanations</li>
+              <li><span aria-hidden="true">✓</span> Expand/collapse concept cards</li>
+              <li><span aria-hidden="true">✓</span> Interactive workflows with active highlighting</li>
+              <li><span aria-hidden="true">✓</span> Search, progress, and smooth navigation</li>
+            </ul>
+          </div>
+
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#concept-cards">Start with Concept Cards</a>
+            <a class="btn btn--ghost" href="#comparative-analysis">Compare Key Ideas</a>
+          </div>
+<br>
+          <div class="hero__objectives glass">
+            <h3 class="sectionTitle">Learning Objectives </h3>
+            <div class="objectives">
+              <div class="objective"><span class="objective__icon" aria-hidden="true">🧼</span><span>Understand text preprocessing</span></div>
+              <div class="objective"><span class="objective__icon" aria-hidden="true">🧮</span><span>Build classical feature representations</span></div>
+              <div class="objective"><span class="objective__icon" aria-hidden="true">🧠</span><span>Interpret language representations</span></div>
+              <div class="objective"><span class="objective__icon" aria-hidden="true">📚</span><span>Differentiate language model families</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <!-- NLP themed illustration (pure CSS/SVG-free) -->
+          <div class="illus">
+            <div class="illus__ring illus__ring--a"></div>
+            <div class="illus__ring illus__ring--b"></div>
+            <div class="illus__ring illus__ring--c"></div>
+            <div class="illus__center">
+              </div>
+            <div class="illus__beam illus__beam--1"></div>
+            <div class="illus__beam illus__beam--2"></div>
+            <div class="illus__beam illus__beam--3"></div>
+          </div>
+
+          <!-- Animated stats -->
+          <div class="stats" role="region" aria-label="Week 1 coverage statistics">
+            <div class="statCard glass" data-counter="19">
+              <div class="statCard__icon" aria-hidden="true">📌</div>
+              <div class="statCard__value"><span class="counter" aria-label="19">0</span>+</div>
+              <div class="statCard__label">Concepts</div>
+            </div>
+            <div class="statCard glass" data-counter="5">
+              <div class="statCard__icon" aria-hidden="true">⚙️</div>
+              <div class="statCard__value"><span class="counter" aria-label="5">0</span>+</div>
+              <div class="statCard__label">Applications</div>
+            </div>
+            <div class="statCard glass" data-counter="5">
+              <div class="statCard__icon" aria-hidden="true">🧭</div>
+              <div class="statCard__value"><span class="counter" aria-label="5">0</span>+</div>
+              <div class="statCard__label">Workflow Diagrams</div>
+            </div>
+            <div class="statCard glass" data-counter="3">
+              <div class="statCard__icon" aria-hidden="true">🔎</div>
+              <div class="statCard__value"><span class="counter" aria-label="3">0</span>+</div>
+              <div class="statCard__label">Comparison Tables</div>
+            </div>
+            <div class="statCard glass" data-counter="2">
+              <div class="statCard__icon" aria-hidden="true">📰</div>
+              <div class="statCard__value"><span class="counter" aria-label="2">0</span>+</div>
+              <div class="statCard__label">Research Insights</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Floating Quick Navigation -->
+    <aside class="quickNav" aria-label="Quick navigation">
+      <button class="quickNav__btn" type="button" aria-label="Open quick navigation" title="Quick navigation">
+        ⌁
+      </button>
+      <div class="quickNav__panel glass" role="navigation" aria-label="Quick links">
+        <div class="quickNav__title">Quick Links</div>
+        <a href="#concept-cards" class="quickNav__link">Concept Cards</a>
+        <a href="#comparative-analysis" class="quickNav__link">Comparisons</a>
+        <a href="#workflow-diagrams" class="quickNav__link">Workflows</a>
+        <a href="#applications" class="quickNav__link">Applications</a>
+        <a href="#team-contribution" class="quickNav__link">Team</a>
+      </div>
+    </aside>
+
+    <!-- Breadcrumb / mobile context -->
+    <div class="mobileBreadcrumb" aria-hidden="true">
+      <span class="crumb">You are learning:</span>
+      <span id="mobileBreadcrumbValue" class="crumbValue">Home</span>
+    </div>
+
+  
+
+    <!-- Concept Cards -->
+    <section id="concept-cards" class="section" aria-labelledby="conceptCardsTitle">
+      <div class="sectionHeader">
+        <h2 id="conceptCardsTitle" class="sectionTitle">Concept Cards </h2>
+        <p class="sectionLead">Click a card to expand. Use the search bar to filter concepts instantly.</p>
+      </div>
+
+      <div class="cardsGrid" id="conceptCardsGrid" role="list"></div>
+
+      <template id="conceptCardTemplate">
+        <article class="conceptCard glass" role="listitem">
+          <header class="conceptCard__head">
+            <div class="conceptCard__icon" aria-hidden="true">🧩</div>
+            <div class="conceptCard__titles">
+              <h3 class="conceptCard__title">Concept Title</h3>
+              <p class="conceptCard__tags muted" aria-label="Concept category">Category</p>
+            </div>
+            <button class="conceptCard__expand" type="button" aria-label="Expand concept">
+              <span class="conceptCard__chev" aria-hidden="true">▾</span>
+            </button>
+          </header>
+
+          <div class="conceptCard__summary">
+            <p class="conceptCard__definition">Definition</p>
+            <div class="conceptCard__micro">
+              <span class="microPill"><strong>Purpose:</strong> <span class="microText">Purpose</span></span>
+              <span class="microPill"><strong>Why required:</strong> <span class="microText">Why required</span></span>
+            </div>
+          </div>
+
+          <div class="conceptCard__body" hidden>
+            <div class="conceptCard__cols">
+              <div class="conceptCard__left">
+                <h4 class="subTitle">Working Principle</h4>
+                <p class="prose" data-field="workingPrinciple">Working principle text.</p>
+
+                <h4 class="subTitle">Step-by-step</h4>
+                <ol class="steps" data-field="steps"></ol>
+
+                <h4 class="subTitle">Example</h4>
+                <div class="exampleBox" data-field="example"></div>
+              </div>
+
+              <div class="conceptCard__right">
+                <div class="keyTakeaways glassSm">
+                  <div class="miniViz__title">Advantages</div>
+                  <ul class="takeaways" data-field="advantages"></ul>
+                  <div class="miniViz__title" style="margin-top:.75rem">Limitations</div>
+                  <ul class="takeaways" data-field="limitations"></ul>
+                </div>
+
+                <div class="keyTakeaways glassSm">
+                  <div class="keyTakeaways__title">Applications</div>
+                  <ul class="takeaways" data-field="applications"></ul>
+                </div>
+
+                <div class="miniViz" role="img" aria-label="Example visualization">
+                  <div class="miniViz__title">Example Visualization</div>
+                  <div class="miniViz__tokens" data-field="viz"></div>
+                  <div class="miniViz__caption muted">Visualization adapts to the concept example.</div>
+                </div>
+
+                <div class="keyTakeaways glassSm">
+                  <div class="keyTakeaways__title">Key Takeaways</div>
+                  <ul class="takeaways" data-field="takeaways"></ul>
+                </div>
+
+                <div class="conceptCard__footerHint muted">
+                  Tip: Click nodes in workflows below to reinforce the pipeline.
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </template>
+    </section>
+
+    <!-- Comparative Analysis -->
+    <section id="comparative-analysis" class="section" aria-labelledby="comparativeTitle">
+      <div class="sectionHeader">
+        <h2 id="comparativeTitle" class="sectionTitle">Comparative Analysis</h2>
+        <p class="sectionLead">Interactive tables that highlight differences and help you choose the right method for the task.</p>
+      </div>
+
+      <div class="tablesStack">
+        <article class="tableCard glass">
+          <header class="tableCard__head">
+            <h3 class="tableCard__title">Stemming vs Lemmatization</h3>
+            <p class="muted">Root-form reduction vs dictionary-based normalization.</p>
+          </header>
+          <div class="tableWrap">
+            <table class="dataTable" aria-label="Stemming vs Lemmatization">
+              <thead>
+                <tr>
+                  <th>Criterion</th>
+                  <th>Stemming</th>
+                  <th>Lemmatization</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Definition</strong></td><td>Heuristic rules reduce words to a crude stem.</td><td>Uses vocabulary and grammar to return the lemma (base form).</td></tr>
+                <tr><td><strong>Working mechanism</strong></td><td>Suffix/pattern stripping with rule sets.</td><td>Dictionary + POS (part-of-speech) awareness.</td></tr>
+                <tr><td><strong>Output</strong></td><td>May be a non-word stem (e.g., "organizat").</td><td>Usually a valid dictionary word (e.g., "organize").</td></tr>
+                <tr><td><strong>Computational complexity</strong></td><td>Typically faster; fewer resources.</td><td>Usually heavier due to lexicon lookup and tagging.</td></tr>
+                <tr><td><strong>Accuracy</strong></td><td>Moderate; can over-reduce or under-reduce.</td><td>Higher; fewer semantic and grammatical mistakes.</td></tr>
+                <tr><td><strong>Advantages</strong></td><td>Simple, fast, good for large corpora with limited compute.</td><td>Improves downstream quality in many NLP tasks.</td></tr>
+                <tr><td><strong>Limitations</strong></td><td>Risk of producing stems that are not interpretable.</td><td>Requires resources (taggers/lexicons) and more processing.</td></tr>
+                <tr><td><strong>Applications</strong></td><td>Search indexing, baseline text normalization.</td><td>Search ranking, linguistic analysis, relation extraction pipelines.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="tableCard glass">
+          <header class="tableCard__head">
+            <h3 class="tableCard__title">TF vs TF-IDF</h3>
+            <p class="muted">Term frequency vs frequency corrected by rarity.</p>
+          </header>
+          <div class="tableWrap">
+            <table class="dataTable" aria-label="TF vs TF-IDF">
+              <thead>
+                <tr>
+                  <th>Criterion</th>
+                  <th>TF</th>
+                  <th>TF-IDF</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Formula</strong></td><td>TF(t,d) = f(t,d)</td><td>TF-IDF(t,d) = TF(t,d) · log(N/df(t))</td></tr>
+                <tr><td><strong>Importance</strong></td><td>Counts how often a term appears in a document.</td><td>Downweights common terms and boosts informative ones.</td></tr>
+                <tr><td><strong>Working</strong></td><td>Direct frequency highlights repetition.</td><td>Balances repetition with term uniqueness across the corpus.</td></tr>
+                <tr><td><strong>Complexity</strong></td><td>Low; requires only per-document counts.</td><td>Moderate; needs corpus statistics (df, N).</td></tr>
+                <tr><td><strong>Strengths</strong></td><td>Good for very small or homogeneous corpora.</td><td>Often stronger baseline for classification and retrieval.</td></tr>
+                <tr><td><strong>Weaknesses</strong></td><td>Common words can dominate.</td><td>Sensitive to corpus composition; assumes bag-of-words independence.</td></tr>
+                <tr><td><strong>Applications</strong></td><td>Baseline scoring, quick prototypes.</td><td>Search relevance ranking, text categorization, document similarity.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="tableCard glass">
+          <header class="tableCard__head">
+            <h3 class="tableCard__title">Word2Vec vs FastText</h3>
+            <p class="muted">Word-level vs subword-aware embeddings.</p>
+          </header>
+          <div class="tableWrap">
+            <table class="dataTable" aria-label="Word2Vec vs FastText">
+              <thead>
+                <tr>
+                  <th>Criterion</th>
+                  <th>Word2Vec</th>
+                  <th>FastText</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Architecture</strong></td><td>Predicts context from word (CBOW) or word from context (Skip-gram).</td><td>Extends word vectors with subword character n-grams.</td></tr>
+                <tr><td><strong>Vocabulary handling</strong></td><td>Represents each word as a single vector.</td><td>Builds embeddings from n-gram compositions.</td></tr>
+                <tr><td><strong>OOV words</strong></td><td>Out-of-vocabulary words usually lack vectors.</td><td>Can generate vectors for OOV words using subword n-grams.</td></tr>
+                <tr><td><strong>Training</strong></td><td>Optimizes predictive loss over word-context pairs.</td><td>Same overall objective, plus additional subword components.</td></tr>
+                <tr><td><strong>Complexity</strong></td><td>Lower to moderate.</td><td>Moderate; more parameters due to subwords.</td></tr>
+                <tr><td><strong>Advantages</strong></td><td>Simple, efficient for many tasks.</td><td>Better for morphology, misspellings, and rare terms.</td></tr>
+                <tr><td><strong>Limitations</strong></td><td>Limited robustness to OOV and morphology.</td><td>Can be less interpretable; subword choices matter.</td></tr>
+                <tr><td><strong>Applications</strong></td><td>Semantic similarity, clustering, baseline retrieval.</td><td>Language modeling for noisy text, multilingual or morphologically rich settings.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="tableCard glass">
+          <header class="tableCard__head">
+            <h3 class="tableCard__title">Statistical vs Neural Language Models</h3>
+            <p class="muted">Probability estimation vs learned representation power.</p>
+          </header>
+          <div class="tableWrap">
+            <table class="dataTable" aria-label="Statistical vs Neural Language Models">
+              <thead>
+                <tr>
+                  <th>Criterion</th>
+                  <th>Statistical</th>
+                  <th>Neural</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Probability estimation</strong></td><td>Often uses n-gram counts and smoothing.</td><td>Uses neural networks to model distributions from embeddings.</td></tr>
+                <tr><td><strong>Learning</strong></td><td>Mostly frequency-based with smoothing strategies.</td><td>Gradient-based training; representations learned end-to-end.</td></tr>
+                <tr><td><strong>Context handling</strong></td><td>Limited by fixed n-gram window.</td><td>Can capture longer dependencies through architectures (e.g., Transformers).</td></tr>
+                <tr><td><strong>Performance</strong></td><td>Reasonable for small-scale tasks.</td><td>Often superior on complex language patterns.</td></tr>
+                <tr><td><strong>Scalability</strong></td><td>Scaling may require large n-gram tables.</td><td>Scales with data and compute; improved with transfer learning.</td></tr>
+                <tr><td><strong>Applications</strong></td><td>Autocompletion baselines, classic speech/NLP pipelines.</td><td>Modern generation, translation, summarization, and dialogue systems.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="tableCard glass">
+          <header class="tableCard__head">
+            <h3 class="tableCard__title">One-Hot Encoding vs Word Embeddings</h3>
+            <p class="muted">Sparse identity vectors vs semantic dense vectors.</p>
+          </header>
+          <div class="tableWrap">
+            <table class="dataTable" aria-label="One-Hot Encoding vs Word Embeddings">
+              <thead>
+                <tr>
+                  <th>Criterion</th>
+                  <th>One-Hot Encoding</th>
+                  <th>Word Embeddings</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Representation</strong></td><td>Each word is a unique sparse vector position.</td><td>Each word is mapped to a dense vector in a continuous space.</td></tr>
+                <tr><td><strong>Dimensionality</strong></td><td>High (equal to vocabulary size).</td><td>Lower and fixed (e.g., 100–768 dims).</td></tr>
+                <tr><td><strong>Semantic information</strong></td><td>None; distance has no meaning.</td><td>Distances and directions correlate with semantic similarity.</td></tr>
+                <tr><td><strong>Complexity</strong></td><td>Fast to assign, but heavy memory for large vocabularies.</td><td>More training complexity, but efficient storage and similarity operations.</td></tr>
+                <tr><td><strong>Memory</strong></td><td>Large sparse structures; inefficient for many models.</td><td>Compact dense matrices for training and inference.</td></tr>
+                <tr><td><strong>Applications</strong></td><td>Simple baselines, educational demos.</td><td>Classification, retrieval, similarity, and input to neural models.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Workflow Diagrams -->
+    <section id="workflow-diagrams" class="section" aria-labelledby="workflowTitle">
+      <div class="sectionHeader">
+        <h2 id="workflowTitle" class="sectionTitle">Workflow Diagrams</h2>
+        <p class="sectionLead">Click a node to focus it. Hover to preview the step description.</p>
+      </div>
+
+      <div class="workflowGrid">
+        <article class="workflowCard glass" data-workflow="preprocess" aria-label="Workflow 1: Preprocessing Pipeline">
+          <header class="workflowCard__head">
+            <h3 class="workflowCard__title">Workflow 1: Complete Text Preprocessing Pipeline</h3>
+          </header>
+          <div class="workflowCard__body">
+            <div class="workflow">
+              <div class="workflow__nodes" role="list"></div>
+              <div class="workflow__arrows" aria-hidden="true"></div>
+            </div>
+            <div class="workflow__panel glassSm" role="status" aria-live="polite">
+              <div class="workflow__panelTitle">Step Details</div>
+              <div class="workflow__panelStep muted">Select a node</div>
+              <div class="workflow__panelDesc prose" id="preprocessDesc"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflowCard glass" data-workflow="features" aria-label="Workflow 2: Feature Engineering Pipeline">
+          <header class="workflowCard__head">
+            <h3 class="workflowCard__title">Workflow 2: Feature Engineering Pipeline</h3>
+          </header>
+          <div class="workflowCard__body">
+            <div class="workflow">
+              <div class="workflow__nodes" role="list"></div>
+              <div class="workflow__arrows" aria-hidden="true"></div>
+            </div>
+            <div class="workflow__panel glassSm" role="status" aria-live="polite">
+              <div class="workflow__panelTitle">Step Details</div>
+              <div class="workflow__panelStep muted">Select a node</div>
+              <div class="workflow__panelDesc prose" id="featuresDesc"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="workflowCard glass" data-workflow="vector" aria-label="Workflow 3: Text-to-Vector Transformation">
+          <header class="workflowCard__head">
+            <h3 class="workflowCard__title">Workflow 3: Text-to-Vector Transformation</h3>
+          </header>
+          <div class="workflowCard__body">
+            <div class="workflow">
+              <div class="workflow__nodes" role="list"></div>
+              <div class="workflow__arrows" aria-hidden="true"></div>
+            </div>
+            <div class="workflow__panel glassSm" role="status" aria-live="polite">
+              <div class="workflow__panelTitle">Step Details</div>
+              <div class="workflow__panelStep muted">Select a node</div>
+              <div class="workflow__panelDesc prose" id="vectorDesc"></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Applications -->
+    <section id="applications" class="section" aria-labelledby="appsTitle">
+      <div class="sectionHeader">
+        <h2 id="appsTitle" class="sectionTitle">Real-world Applications</h2>
+        <p class="sectionLead">How Week 1 building blocks connect to tasks that matter.</p>
+      </div>
+
+      <div class="appsGrid">
+        <article class="appCard glass">
+          <header class="appCard__head"><div class="appCard__icon" aria-hidden="true">🔍</div><h3>Search Engines</h3></header>
+          <div class="prose">
+            <div class="kvs"><div><strong>Problem:</strong></div><div>Find relevant pages for a query.</div></div>
+            <div class="kvs"><div><strong>NLP concepts used:</strong></div><div>Tokenization, normalization, TF/TF-IDF, embeddings.</div></div>
+            <div class="kvs"><div><strong>Why preprocessing:</strong></div><div>Reduces noise and aligns “query” with “document” vocabulary.</div></div>
+            <div class="kvs"><div><strong>Feature engineering:</strong></div><div>Bag-of-words and weighted term vectors.</div></div>
+            <div class="kvs"><div><strong>Embedding techniques:</strong></div><div>Semantic matching using dense vectors.</div></div>
+            <div class="kvs"><div><strong>Benefit:</strong></div><div>Better ranking and robustness to word variants.</div></div>
+            <div class="kvs"><div><strong>Example:</strong></div><div>A query “running shoes” retrieves docs about “sneakers for running”.</div></div>
+          </div>
+        </article>
+
+        <article class="appCard glass">
+          <header class="appCard__head"><div class="appCard__icon" aria-hidden="true">🤖</div><h3>Chatbots</h3></header>
+          <div class="prose">
+            <div class="kvs"><div><strong>Problem:</strong></div><div>Understand user intent and respond coherently.</div></div>
+            <div class="kvs"><div><strong>NLP concepts used:</strong></div><div>Sentence segmentation, embeddings, language models.</div></div>
+            <div class="kvs"><div><strong>Why preprocessing:</strong></div><div>Improves token quality and stabilizes downstream predictions.</div></div>
+            <div class="kvs"><div><strong>Feature engineering:</strong></div><div>Convert text to vectors for retrieval or classification.</div></div>
+            <div class="kvs"><div><strong>Embedding techniques:</strong></div><div>Word/transformer representations for semantic similarity.</div></div>
+            <div class="kvs"><div><strong>Benefit:</strong></div><div>More relevant answers and better context handling.</div></div>
+            <div class="kvs"><div><strong>Example:</strong></div><div>User: “I forgot my password” → chatbot suggests reset steps.</div></div>
+          </div>
+        </article>
+
+        <article class="appCard glass">
+          <header class="appCard__head"><div class="appCard__icon" aria-hidden="true">🫧</div><h3>Sentiment Analysis</h3></header>
+          <div class="prose">
+            <div class="kvs"><div><strong>Problem:</strong></div><div>Determine whether text expresses positive, negative, or neutral sentiment.</div></div>
+            <div class="kvs"><div><strong>NLP concepts used:</strong></div><div>Stop-word removal, TF-IDF, embeddings.</div></div>
+            <div class="kvs"><div><strong>Why preprocessing:</strong></div><div>Eliminates irrelevant tokens and standardizes text patterns.</div></div>
+            <div class="kvs"><div><strong>Feature engineering:</strong></div><div>Weighted term vectors for efficient classification.</div></div>
+            <div class="kvs"><div><strong>Embedding techniques:</strong></div><div>Dense representations capture meaning beyond exact word matches.</div></div>
+            <div class="kvs"><div><strong>Benefit:</strong></div><div>More accurate decisions for noisy user-generated content.</div></div>
+            <div class="kvs"><div><strong>Example:</strong></div><div>“Not bad at all!” should score as mildly positive.</div></div>
+          </div>
+        </article>
+
+        <article class="appCard glass">
+          <header class="appCard__head"><div class="appCard__icon" aria-hidden="true">🌐</div><h3>Machine Translation</h3></header>
+          <div class="prose">
+            <div class="kvs"><div><strong>Problem:</strong></div><div>Translate text from one language to another with meaning preserved.</div></div>
+            <div class="kvs"><div><strong>NLP concepts used:</strong></div><div>Text cleaning, tokenization, embeddings, language models.</div></div>
+            <div class="kvs"><div><strong>Why preprocessing:</strong></div><div>Normalizes punctuation and segmentation to reduce alignment errors.</div></div>
+            <div class="kvs"><div><strong>Feature engineering:</strong></div><div>Token-to-vector inputs; attention-friendly sequences.</div></div>
+            <div class="kvs"><div><strong>Embedding techniques:</strong></div><div>Contextual embeddings help disambiguate words.</div></div>
+            <div class="kvs"><div><strong>Benefit:</strong></div><div>Better fluency and grammar across languages.</div></div>
+            <div class="kvs"><div><strong>Example:</strong></div><div>“I can’t attend” → correct tense and nuance in the target language.</div></div>
+          </div>
+        </article>
+
+        <article class="appCard glass">
+          <header class="appCard__head"><div class="appCard__icon" aria-hidden="true">📝</div><h3>Text Summarization</h3></header>
+          <div class="prose">
+            <div class="kvs"><div><strong>Problem:</strong></div><div>Create a concise summary of a longer document.</div></div>
+            <div class="kvs"><div><strong>NLP concepts used:</strong></div><div>Representations, embeddings, language modeling.</div></div>
+            <div class="kvs"><div><strong>Why preprocessing:</strong></div><div>Reduces noise so the model focuses on meaningful content.</div></div>
+            <div class="kvs"><div><strong>Feature engineering:</strong></div><div>Convert text to vectors to support selection or generation.</div></div>
+            <div class="kvs"><div><strong>Embedding techniques:</strong></div><div>Contextual representations guide content selection and coherence.</div></div>
+            <div class="kvs"><div><strong>Benefit:</strong></div><div>Faster reading with key information preserved.</div></div>
+            <div class="kvs"><div><strong>Example:</strong></div><div>Summarizing a research abstract into 3–4 core points.</div></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Research & Industry -->
+    <section id="research-industry" class="section" aria-labelledby="riTitle">
+      <div class="sectionHeader">
+        <h2 id="riTitle" class="sectionTitle">Research & Industry Insights</h2>
+        <p class="sectionLead">Two recent developments and how industry applies Week 1 ideas at scale.</p>
+      </div>
+
+      <div class="riGrid">
+        <article class="riCard glass">
+          <h3>Recent Research</h3>
+          <div class="riItem">
+            <div class="riItem__title">Efficient fine-tuning and adapter methods</div>
+            <div class="prose">
+              <p><strong>Innovation:</strong> Instead of updating all model parameters, training focuses on small adapter modules or low-rank updates.</p>
+              <p><strong>Importance:</strong> It reduces compute requirements while retaining task-specific quality.</p>
+              <p><strong>Impact:</strong> Educational and domain models can be created faster for specialized vocabularies (e.g., healthcare or legal text).</p>
+            </div>
+          </div>
+          <div class="riItem">
+            <div class="riItem__title">Retrieval-Augmented Generation (RAG)</div>
+            <div class="prose">
+              <p><strong>Innovation:</strong> Combine document retrieval with generation to ground answers in external text sources.</p>
+              <p><strong>Importance:</strong> Improves factuality and reduces hallucinations in question answering.</p>
+              <p><strong>Impact:</strong> Opens the door for knowledge repositories where preprocessing and embeddings support reliable retrieval.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="riCard glass">
+          <h3>Industrial Applications</h3>
+          <div class="riItem">
+            <div class="riItem__title">Customer support automation</div>
+            <div class="prose">
+              <p><strong>Company/Domain:</strong> E-commerce and telecom support teams.</p>
+              <p><strong>NLP technologies used:</strong> intent classification, semantic embeddings, and language modeling.</p>
+              <p><strong>Benefits:</strong> Faster resolution and consistent responses across agents and channels.</p>
+            </div>
+          </div>
+          <div class="riItem">
+            <div class="riItem__title">Content moderation and compliance</div>
+            <div class="prose">
+              <p><strong>Company/Domain:</strong> Social platforms and digital governance teams.</p>
+              <p><strong>NLP technologies used:</strong> text representations, contextual classification, and thresholding strategies.</p>
+              <p><strong>Benefits:</strong> Detects harmful or non-compliant content earlier with measurable precision/recall targets.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="riCard glass">
+          <h3>Open Source Framework</h3>
+          <div class="prose">
+            <div class="riItem__title">spaCy</div>
+            <p><strong>Features:</strong> Efficient pipelines for tokenization, lemmatization, POS tagging, and named entity recognition.</p>
+            <p><strong>Advantages:</strong> Speed-friendly design and a clean API for building NLP workflows.</p>
+            <p><strong>Industry usage:</strong> Common in production systems that need robust preprocessing and linguistic features.</p>
+          </div>
+        </article>
+      </div>
+
+      <!-- Research Timeline -->
+      <div class="sectionHeader" style="margin-top:2.4rem;">
+        <div>
+          <h2 class="sectionTitle">Research Timeline</h2>
+          <p class="sectionLead">From frequency tables to self-attention — four decades of the library learning to read.</p>
+        </div>
+      </div>
+
+      <div class="rTimeline glass" data-reveal>
+        <ol class="rTimeline__track">
+          <li class="rTimeline__item rt--blue">
+            <div class="rTimeline__node">
+              <span class="rTimeline__icon" aria-hidden="true">📊</span>
+            </div>
+            <div class="rTimeline__card">
+              <div class="rTimeline__year">1980s</div>
+              <div class="rTimeline__title">Statistical Models</div>
+              <p class="rTimeline__desc">Frequency-based prediction becomes the library's first method for anticipating what readers want next.</p>
+            </div>
+          </li>
+
+          <li class="rTimeline__item rt--green">
+            <div class="rTimeline__node">
+              <span class="rTimeline__icon" aria-hidden="true">🧩</span>
+            </div>
+            <div class="rTimeline__card">
+              <div class="rTimeline__year">2003</div>
+              <div class="rTimeline__title">Word2Vec Foundations</div>
+              <p class="rTimeline__desc">Neural approaches to learning word relationships begin to take shape.</p>
+            </div>
+          </li>
+
+          <li class="rTimeline__item rt--amber">
+            <div class="rTimeline__node">
+              <span class="rTimeline__icon" aria-hidden="true">🔡</span>
+            </div>
+            <div class="rTimeline__card">
+              <div class="rTimeline__year">2016</div>
+              <div class="rTimeline__title">FastText</div>
+              <p class="rTimeline__desc">Subword modelling lets the library finally understand words it has never seen.</p>
+            </div>
+          </li>
+
+          <li class="rTimeline__item rt--purple">
+            <div class="rTimeline__node">
+              <span class="rTimeline__icon" aria-hidden="true">🔄</span>
+            </div>
+            <div class="rTimeline__card">
+              <div class="rTimeline__year">2018</div>
+              <div class="rTimeline__title">BERT</div>
+              <p class="rTimeline__desc">Bidirectional Transformers bring deep, whole-sentence context into the library.</p>
+            </div>
+          </li>
+
+          <li class="rTimeline__item rt--pink">
+            <div class="rTimeline__node">
+              <span class="rTimeline__icon" aria-hidden="true">✍️</span>
+            </div>
+            <div class="rTimeline__card">
+              <div class="rTimeline__year">2020+</div>
+              <div class="rTimeline__title">GPT Era</div>
+              <p class="rTimeline__desc">Large generative Transformers begin composing, not just retrieving.</p>
+            </div>
+          </li>
+
+          <li class="rTimeline__item rt--cyan">
+            <div class="rTimeline__node">
+              <span class="rTimeline__icon" aria-hidden="true">🌐</span>
+            </div>
+            <div class="rTimeline__card">
+              <div class="rTimeline__year">Future</div>
+              <div class="rTimeline__title">Multimodal AI</div>
+              <p class="rTimeline__desc">The library imagines archivists that read text, images and sound as one.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Team Contribution -->
+    <section id="team-contribution" class="section" aria-labelledby="teamTitle">
+      
+
+      <div class="teamGrid">
+        <article class="teamCard glass">
+          <header class="teamCard__head">
+            <div class="teamCard__avatar" aria-hidden="true">🧑‍🎓</div>
+            <div>
+              <h3 class="teamCard__name" contenteditable="true" spellcheck="false">Vyom Rampariya</h3>
+              <p class="muted">Contributor overview  <b>50%</b></p>
+            </div>
+          </header>
+          <ul class="teamList">
+            <li>• <strong>Two Concept Cards:</strong> <span contenteditable="true">Tokenization</span>, <span contenteditable="true">TF-IDF</span></li>
+            <li>• <strong>One Comparison:</strong> <span contenteditable="true">Stemming vs Lemmatization</span></li>
+            <li>• <strong>Workflow Component:</strong> <span contenteditable="true">Noise Removal step</span></li>
+            <li>• <strong>Reflection Note:</strong> <span contenteditable="true">I learned how normalization affects downstream features.</span></li>
+          </ul>
+        </article>
+
+        <article class="teamCard glass">
+          <header class="teamCard__head">
+            <div class="teamCard__avatar" aria-hidden="true">🧑‍🎓</div>
+            <div>
+              <h3 class="teamCard__name" contenteditable="true" spellcheck="false">Naman Visaria</h3>
+              <p class="muted">Contributor overview  <b>50%</b></p>
+            </div>
+          </header>
+          <ul class="teamList">
+            <li>• <strong>Two Concept Cards:</strong> <span contenteditable="true">Word2Vec</span>, <span contenteditable="true">Contextual Embeddings</span></li>
+            <li>• <strong>One Comparison:</strong> <span contenteditable="true">Word2Vec vs FastText</span></li>
+            <li>• <strong>Workflow Component:</strong> <span contenteditable="true">Vocabulary Creation node</span></li>
+            <li>• <strong>Reflection Note:</strong> <span contenteditable="true">I explored how embeddings capture meaning even with OOV terms.</span></li>
+          </ul>
+        </article>
+      </div>
+<br><br>
+      <div class="reflectionGrid">
+        <article class="reflectionCard glass">
+          <h3 contenteditable="true" spellcheck="false">Vyom Rampariya — Reflection</h3>
+          <div class="accordion" data-accordion>
+            <button class="accordion__btn" type="button" aria-expanded="false">Learning experience</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">Describe what became clearer after exploring preprocessing and feature representations.</p>
+            </div>
+
+            <button class="accordion__btn" type="button" aria-expanded="false">Challenges</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">Mention confusing ideas such as stemming errors, TF-IDF weighting intuition, or embedding differences.</p>
+            </div>
+
+            <button class="accordion__btn" type="button" aria-expanded="false">Skills gained</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">List skills like comparing algorithms, explaining steps, and linking concepts to applications.</p>
+            </div>
+
+            <button class="accordion__btn" type="button" aria-expanded="false">Future improvements</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">State what you would study next (e.g., evaluation metrics, neural architectures, or tokenization details).</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="reflectionCard glass">
+          <h3 contenteditable="true" spellcheck="false">Naman Visaria — Reflection</h3>
+          <div class="accordion" data-accordion>
+            <button class="accordion__btn" type="button" aria-expanded="false">Learning experience</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">Describe the impact of workflows and comparisons on your understanding.</p>
+            </div>
+
+            <button class="accordion__btn" type="button" aria-expanded="false">Challenges</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">Mention difficulties like intuition behind OOV handling or contextual embedding benefits.</p>
+            </div>
+
+            <button class="accordion__btn" type="button" aria-expanded="false">Skills gained</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">Explain skills like reasoning about semantic similarity and choosing representations.</p>
+            </div>
+
+            <button class="accordion__btn" type="button" aria-expanded="false">Future improvements</button>
+            <div class="accordion__panel" hidden>
+              <p contenteditable="true" spellcheck="false">Propose improvements such as experimenting with toy corpora or implementing retrieval-based features.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section id="sustainability" class="section" aria-labelledby="sustainTitle">
+      <div class="sectionHeader">
+        <h2 id="sustainTitle" class="sectionTitle">How NLP Contributes to Society and Sustainable Development</h2>
+        
+      </div>
+
+      <div class="timelineGrid">
+        <div class="timeline glass">
+          <div class="timeline__item is-active">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__title">Language Accessibility</div>
+              <div class="timeline__text muted">Improves communication across dialects and scripts.</div>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__title">Regional Language Technologies</div>
+              <div class="timeline__text muted">Supports local content creation and information retrieval.</div>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__title">Educational Inclusion</div>
+              <div class="timeline__text muted">Enables reading support, tutoring, and adaptive explanations.</div>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__title">Assistive Technologies</div>
+              <div class="timeline__text muted">Helps with accessibility tools such as text-to-speech and summarization.</div>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__title">Citizen Services</div>
+              <div class="timeline__text muted">Improves search in government portals and reduces response time.</div>
+            </div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot" aria-hidden="true"></div>
+            <div class="timeline__content">
+              <div class="timeline__title">Digital Governance</div>
+              <div class="timeline__text muted">Supports moderation and document processing for transparency.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sustainText glassSm">
+          <h3 class="subTitle">Short Discussion (300–500 words)</h3>
+          <p class="prose">
+            Natural Language Processing (NLP) contributes to society by turning human language into machine-interpretable signals that can be searched, summarized, translated, and analyzed. When designed responsibly, NLP supports <strong>language accessibility</strong> by enabling tools such as reading assistance, automated transcription support, and multilingual search across documents that people already have. This reduces communication barriers for communities whose languages are underrepresented in digital content.
+            <br><br>
+            A major sustainability benefit comes from <strong>regional language technologies</strong>. Building preprocessing pipelines—tokenization, normalization, and noise removal—improves how text is represented before a model learns patterns. With better representations, educational and service content can be delivered more effectively in local scripts and dialects.
+            <br><br>
+            NLP also advances <strong>educational inclusion</strong>. Summarization and adaptive feedback can help learners who struggle with reading length or complexity. In addition, assistive technologies such as sentence simplification and structured explanations support users with disabilities by making content easier to consume.
+            <br><br>
+            In public life, NLP enables <strong>citizen services</strong> through query-focused portals. People can phrase needs in natural language, and systems can retrieve relevant guidance, improving access to information. For organizations, NLP supports <strong>digital governance</strong> by helping classify documents, detect duplicate submissions, and moderate harmful content.
+            <br><br>
+            These outcomes align with the <strong>Sustainable Development Goals</strong> by promoting inclusive access to knowledge, improving participation in digital systems, and strengthening public service responsiveness. Looking ahead, the impact of NLP will depend on ethical design, multilingual evaluation, and energy-aware deployment. If these considerations are integrated from the beginning—starting with robust preprocessing and fair representation—NLP can support a more equitable and sustainable information ecosystem.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section id="references" class="section" aria-labelledby="refTitle">
+      <div class="sectionHeader">
+        <h2 id="refTitle" class="sectionTitle">References</h2>
+        
+      </div>
+
+      <div class="refs glass">
+        <ol class="refsList">
+          <li>Jurafsky, D., & Martin, J. H. (2024). <em>Speech and Language Processing</em>. Draft manuscript / book edition.</li>
+          <li>Manning, C. D., Raghavan, P., & Schütze, H. (2008). <em>Introduction to Information Retrieval</em>. Cambridge University Press.</li>
+          <li>Silge, J., & Robinson, D. (2017). <em>Text Mining with R</em>. O’Reilly Media.</li>
+          <li>Ruder, S. (2017). An overview of gradient descent optimization algorithms. <em>arXiv</em> preprint arXiv:1609.04747.</li>
+          <li>Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks. <em>arXiv</em> preprint arXiv:1908.10084.</li>
+          <li>spaCy documentation. (n.d.). <em>spaCy — Industrial-strength NLP in Python</em>. Retrieved 2026 from https://spacy.io/</li>
+          <li>NLTK documentation. (n.d.). <em>Natural Language Toolkit</em>. Retrieved 2026 from https://www.nltk.org/</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Back-to-top button -->
+    <button id="backToTop" class="backToTop" type="button" aria-label="Back to top" title="Back to top">
+      ↑
+    </button>
+
+    <!-- Breadcrumb + tooltip container -->
+    <div id="tooltip" class="tooltip" role="tooltip" hidden></div>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/workflow.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,7 @@
+/* NLP Knowledge Repository — card-specific helpers */
+
+/* Small helper for micro visual tokens */
+.miniViz__tokens span:nth-child(3n+1){border-color: rgba(124,92,255,.28); color: var(--text)}
+.miniViz__tokens span:nth-child(3n+2){border-color: rgba(34,211,238,.28); color: var(--text)}
+.miniViz__tokens span:nth-child(3n+3){border-color: rgba(52,211,153,.28); color: var(--text)}
+
